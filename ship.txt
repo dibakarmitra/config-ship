@@ -7,4 +7,5 @@ git push origin main --tags
 
 - npm commands
 npm pack
+npm pack --dry-run
 npm publish --access public
