@@ -13,7 +13,7 @@ Designed for apps and npm packages.
 - Layered config resolution
 - Nested ENV support via __
 - Runtime overrides
-- Node, Deno, Bun support
+- Node js/ts support
 - No validation
 - No crashes
 
