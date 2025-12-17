@@ -38,7 +38,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/dibakarmitra/config-ship"
+        "url": "git+https://github.com/dibakarmitra/config-ship.git"
     },
     "devDependencies": {
         "@types/node": "^25.0.3",
