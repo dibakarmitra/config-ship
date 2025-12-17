@@ -1,0 +1,15 @@
+module.exports = {
+    app: {
+        name: "TestAppCJS",
+        version: "1.0.0",
+    },
+    database: {
+        host: "localhost",
+        port: 5432,
+        dialect: "postgres",
+    },
+    features: {
+        darkTheme: true,
+        notifications: false,
+    },
+};

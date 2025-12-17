@@ -1,0 +1,10 @@
+- git commands
+git status
+git add .
+git commit -m "chore: release v0.1.0"
+git tag v0.1.0
+git push origin main --tags
+
+- npm commands
+npm pack
+npm publish --access public

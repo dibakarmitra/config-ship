@@ -1,0 +1,47 @@
+{
+    "name": "config-ship",
+    "version": "0.1.0",
+    "description": "Lightweight, package-safe layered configuration resolver for Node, Deno, and Bun",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md",
+        "ship.txt"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "node --test tests/*.test.js",
+        "example": "node examples/payment.js",
+        "prepublishOnly": "npm run build && npm run test"
+    },
+    "keywords": [
+        "config",
+        "configuration",
+        "env",
+        "dotenv",
+        "layered-config",
+        "infra"
+    ],
+    "author": "Dibakar Mitra",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dibakarmitra/config-ship"
+    },
+    "devDependencies": {
+        "@types/node": "^25.0.3",
+        "typescript": "^5.9.3"
+    }
+}
