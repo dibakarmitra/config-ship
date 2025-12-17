@@ -1,7 +1,7 @@
 {
     "name": "config-ship",
     "version": "0.1.0",
-    "description": "Lightweight, package-safe layered configuration resolver for Node",
+    "description": "Lightweight, package-safe configuration resolver with layered defaults, env, and runtime overrides.",
     "type": "module",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
