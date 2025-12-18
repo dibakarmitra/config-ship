@@ -1,5 +1,5 @@
 {
-    "name": "@dibakarmitra/config-ship",
+    "name": "config-ship",
     "version": "0.1.1",
     "description": "Lightweight, package-safe configuration resolver with layered defaults, env, and runtime overrides.",
     "type": "module",
