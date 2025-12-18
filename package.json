@@ -1,5 +1,5 @@
 {
-    "name": "config-ship",
+    "name": "@dibakarmitra/config-ship",
     "version": "0.1.1",
     "description": "Lightweight, package-safe configuration resolver with layered defaults, env, and runtime overrides.",
     "type": "module",
@@ -18,7 +18,8 @@
         "ship.txt"
     ],
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
     },
     "scripts": {
         "build": "tsc",
