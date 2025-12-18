@@ -1,6 +1,7 @@
 # ConfigShip
 
 [![npm version](https://img.shields.io/npm/v/config-ship)](https://www.npmjs.com/package/config-ship)
+[![npm downloads](https://img.shields.io/npm/dm/config-ship)](https://www.npmjs.com/package/config-ship)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ConfigShip is a lightweight, package-safe configuration resolver that layers
