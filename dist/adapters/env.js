@@ -33,12 +33,19 @@ export function loadEnv(platform, prefix = "", envFile) {
     return result;
 }
 function parse(value) {
+    if (value === "")
+        return value;
     if (value === "true")
         return true;
     if (value === "false")
         return false;
-    if (!isNaN(Number(value)))
-        return Number(value);
+    if (value === "null")
+        return null;
+    if (value === "undefined")
+        return undefined;
+    const num = Number(value);
+    if (!isNaN(num) && value.trim() !== "")
+        return num;
     try {
         return JSON.parse(value);
     }

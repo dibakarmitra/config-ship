@@ -41,13 +41,18 @@ export function loadEnv(
 }
 
 function parse(value: string) {
-    if (value === "true") return true
-    if (value === "false") return false
-    if (!isNaN(Number(value))) return Number(value)
+    if (value === "") return value;
+    if (value === "true") return true;
+    if (value === "false") return false;
+    if (value === "null") return null;
+    if (value === "undefined") return undefined;
+    
+    const num = Number(value);
+    if (!isNaN(num) && value.trim() !== "") return num;
 
     try {
-        return JSON.parse(value)
+        return JSON.parse(value);
     } catch {
-        return value
+        return value;
     }
 }

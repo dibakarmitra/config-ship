@@ -13,7 +13,10 @@ export function parseEnv(content) {
             (value.startsWith("'") && value.endsWith("'"))) {
             value = value.slice(1, -1);
         }
-        result[key.trim()] = value.trim();
+        value = value.trim();
+        if (value === "")
+            continue;
+        result[key.trim()] = value;
     }
     return result;
 }
