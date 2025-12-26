@@ -2,14 +2,13 @@ import { describe, it } from "node:test";
 import assert from "node:assert";
 import { loadEnv } from "../dist/adapters/env.js";
 import { loadFile } from "../dist/adapters/file.js";
-import { resolve } from "node:path";
 
 describe("Adapters", () => {
     describe("loadEnv", () => {
         it("should load process.env values", () => {
             process.env.TEST_APP__PORT = "8080";
             const result = loadEnv("node", "TEST_");
-            assert.strictEqual(result.app.port, 8080);
+            assert.strictEqual(result.transformed.app.port, 8080);
             delete process.env.TEST_APP__PORT;
         });
 
@@ -17,8 +16,8 @@ describe("Adapters", () => {
             process.env.TEST_BOOL = "true";
             process.env.TEST_NUM = "123";
             const result = loadEnv("node", "TEST_");
-            assert.strictEqual(result.bool, true);
-            assert.strictEqual(result.num, 123);
+            assert.strictEqual(result.transformed.bool, true);
+            assert.strictEqual(result.transformed.num, 123);
             delete process.env.TEST_BOOL;
             delete process.env.TEST_NUM;
         });
@@ -26,7 +25,7 @@ describe("Adapters", () => {
         it("should handle nested keys with double underscore", () => {
             process.env.TEST_DB__HOST = "localhost";
             const result = loadEnv("node", "TEST_");
-            assert.strictEqual(result.db.host, "localhost");
+            assert.strictEqual(result.transformed.db.host, "localhost");
             delete process.env.TEST_DB__HOST;
         });
     });

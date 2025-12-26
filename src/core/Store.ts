@@ -3,14 +3,23 @@ import { dotGet, dotSet } from "../utils/dot.js"
 export class Store {
     data: any = {}
     runtime: any = {}
+    rawEnv: Record<string, any> = {}
 
     setAll(obj: any) {
         this.data = obj
     }
 
+    setRawEnv(rawEnvMap: Record<string, any>) {
+        this.rawEnv = rawEnvMap
+    }
+
     get(path: string, fallback?: any) {
         const val = dotGet(this.data, path)
-        return val === undefined ? fallback : val
+        if (val !== undefined) return val
+
+        if (path in this.rawEnv) return this.rawEnv[path]
+
+        return fallback
     }
 
     set(path: string, value: any) {
@@ -19,7 +28,7 @@ export class Store {
     }
 
     has(path: string) {
-        return dotGet(this.data, path) !== undefined
+        return dotGet(this.data, path) !== undefined || path in this.rawEnv
     }
 
     all() {

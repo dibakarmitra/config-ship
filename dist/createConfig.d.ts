@@ -4,8 +4,8 @@ export declare function createConfig(options?: {
     envFile?: string;
     rootFile?: string;
 }): {
-    get: any;
-    set: any;
-    has: any;
-    all: any;
+    get: (path: string, fallback?: any) => any;
+    set: (path: string, value: any) => void;
+    has: (path: string) => boolean;
+    all: () => any;
 };

@@ -8,7 +8,7 @@
         "declaration": true,
         "declarationMap": false,
         "emitDeclarationOnly": false,
-        "strict": false,
+        "strict": true,
         "skipLibCheck": true,
         "esModuleInterop": true
     },

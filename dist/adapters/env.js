@@ -13,24 +13,28 @@ export function loadEnv(platform, prefix = "", envFile) {
             // ignore
         }
     }
-    if (platform === "deno") {
+    if (platform === "deno" && typeof Deno !== "undefined") {
         source = { ...source, ...Deno.env.toObject() };
     }
-    else if (platform === "bun") {
+    else if (platform === "bun" && typeof Bun !== "undefined") {
         source = { ...source, ...Bun.env };
     }
     else {
         source = { ...source, ...process.env };
     }
     const result = {};
+    const rawEnvMap = {};
     for (const key in source) {
         if (prefix && !key.startsWith(prefix))
             continue;
+        // Store raw env name
+        rawEnvMap[key] = parse(source[key]);
+        // Transform and store
         const clean = prefix ? key.slice(prefix.length) : key;
         const path = clean.toLowerCase().split("__").join(".");
         dotSet(result, path, parse(source[key]));
     }
-    return result;
+    return { transformed: result, raw: rawEnvMap };
 }
 function parse(value) {
     if (value === "")
