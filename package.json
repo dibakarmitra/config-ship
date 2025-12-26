@@ -15,7 +15,7 @@
         "dist",
         "README.md",
         "CHANGELOG.md",
-        "ship.txt"
+        "LICENSE"
     ],
     "publishConfig": {
         "access": "public"

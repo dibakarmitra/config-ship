@@ -11,12 +11,16 @@ Designed for apps and npm packages.
 
 ## Features
 
-- Layered config resolution
-- Nested ENV support via __
-- Runtime overrides
-- Node js/ts support
-- No validation
-- No crashes
+- **Layered config resolution** - defaults → file → env → runtime
+- **Nested ENV support** - use `__` for nested keys (e.g., `APP_DB__HOST`)
+- **Raw env names** - access vars by original name (`APP_NAME`) or transformed (`name`)
+- **Auto-parsing** - booleans, numbers, JSON automatically parsed
+- **Runtime overrides** - dynamically update config at runtime
+- **TypeScript support** - built with strict mode enabled
+- **Secure** - protected against prototype pollution
+- **Zero dependencies** - lightweight and fast
+- **No validation** - simple and flexible
+- **No crashes** - graceful fallbacks
 
 ## Resolution Order
 
@@ -49,13 +53,13 @@ config.set("db.host", "127.0.0.1")
 
 ### Environment Variables
 
-Use double underscores (`__`) for nested keys:
+Use double underscores (`__`) for nested keys. After the prefix, the first underscore separates the prefix, then `__` creates nested paths:
 
 ```bash
 # .env or environment
-APP__DB__HOST=production.db.com
-APP__DB__PORT=3306
-APP__FEATURE__ENABLED=true
+APP_DB__HOST=production.db.com      # becomes db.host
+APP_DB__PORT=3306                   # becomes db.port
+APP_FEATURE__ENABLED=true           # becomes feature.enabled
 ```
 
 ```ts
@@ -125,3 +129,14 @@ config.get("db.host") // "custom.db.com"
 - `config.set(path, value)` - Set value at runtime
 - `config.has(path)` - Check if path exists
 - `config.all()` - Get entire config object
+
+## Recent Changes (v0.1.2)
+
+- **Raw env names**: Access environment variables using original names (e.g., `APP_NAME`) or transformed names (e.g., `name`)
+- **Security**: Fixed prototype pollution vulnerability in deep merge
+- **TypeScript**: Enabled strict mode for better type safety
+- **Documentation**: Added comprehensive examples and MIT license
+
+## License
+
+MIT - see [LICENSE](LICENSE) file for details
